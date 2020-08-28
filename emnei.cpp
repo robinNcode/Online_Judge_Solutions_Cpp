@@ -1,36 +1,37 @@
-#include<iostream>
 #include<stdio.h>
 #include<string.h>
+#include<ctype.h>
+int main(){
+            char str[200];
+            int index,alpha=0,digit=0,space=0,special=0;
+            fputs("Enter string:",stdout);
+            scanf("%[^\n]%*c", str);
+            //getchar();
 
-using namespace std;
-int HexadecimaltoDecimal(char num[]) {
-   int len = strlen(num),base = 1,temp = 0;
-   for (int i=len-1; i>=0; i--) {
-      if (num[i]>='0' && num[i]<='9') {
-         cout<<"Base = "<<base<<endl;
-         temp += (num[i] - 48)*base;
-         base = base * 16;
-         cout<<"Temp = "<<base<<endl;
-      }
-      else if (num[i]>='A' && num[i]<='F') {
-         temp += (num[i] - 55)*base;
-         base = base*16;
-         cout<<"Temp = "<<base<<endl;
-      }
-   }
-   return temp;
-}
-}
-int main(int argc, char ** argv){
+            int len = strlen(str);
+            for(index=0; index<len; index++){
+                if(isalpha(str[index])){
+                    printf("I Am alpha \n");
+                    alpha++;
+                }
+                else if(isdigit(str[index])){
+                    printf("I Am digit \n");
+                    digit++;
+                }
+                else if(isspace(str[index])){
+                    printf("I Am space \n");
+                    space++;
+                }
+                else special++;
+                //index ++;
+            }
 
-                int  siz,i,decimalNumber;
-                char hexdec[8];
-                cout<<"\tHow many digit do you wanna enter ? but not more than 8:";
-                cin>>siz;
-                cout<<"\tEnter a Hexadecimal value :";
-                for(i = 0; i < siz; i++) cin>>hexdec[i];
-                decimalNumber = HexadecimaltoDecimal(hexdec); //Converting Hexadecimal to Decimal
-                cout<<"\tDecimal form of given number is = "<<decimalNumber;
-                //decimalNumber = 0;
-	return 0;
+            puts(str);
+            printf("Index = %d\n",index);
+            printf("Alpha Char = %d\n",alpha);
+            printf("Digit = %d\n",digit);
+            printf("Space = %d\n",space);
+            printf("Special = %d\n",special);
+
+            return 0;
 }

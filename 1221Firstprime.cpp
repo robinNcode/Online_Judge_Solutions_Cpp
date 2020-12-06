@@ -18,9 +18,11 @@ int main()
                 cout<<"Not Prime\n";
                 break;
             }
-            else if (pri ==0 && pri == 1) cout<<"Not Prime\n";
-            else cout<<"Prime\n";
-            }
+            else if (pri ==0 && pri == 1)
+                cout<<"Not Prime\n";
+            else
+                cout<<"Prime\n";
+        }
         else
         {
             while(pri != 0)
@@ -32,13 +34,12 @@ int main()
                 {
                     cout<<"Not Prime\n";
                     break;
-                }
-                else if (pri ==0 && pri == 1) cout<<"Not Prime\n";
+                }                else if (pri ==0 && pri == 1)
+                    cout<<"Not Prime\n";
                 else
-                }
-            if()
-                cout<<"Prime\n";
+                    cout<<"Prime\n";
         }
+    }
     }
     return 0;
 }

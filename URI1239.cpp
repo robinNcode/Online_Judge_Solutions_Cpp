@@ -4,8 +4,8 @@
 using namespace std;
 int main(int argc, char ** argv){
     char str[50];
-    while(1){
-        gets(str);
+    while(gets(str)){
+
         int len = strlen(str);
 
         bool undsChange=false,astChange=false;

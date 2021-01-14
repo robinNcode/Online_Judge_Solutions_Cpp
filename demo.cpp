@@ -1,25 +1,18 @@
-#include<iostream>
-#include<string.h>
-using namespace std;
+#include <string.h>
+#include <stdbool.h>
+#include <stdio.h>
 
-int main()
+int main(int argc, char *argv)
 {
-    string str;
-    getline(cin,str);
 
-    string strWords[50];
-    short counter = 0;
-    int len= str.length();
-    cout<<len<<endl;
-    for(short i=0; i<str.length(); i++)
+    char words[1100];
+
+    bool body = false;
+    while (~scanf("%[^\n]%*c", words))
     {
-
-        strWords[counter] = str[i];
-        if(str[i] == ' ')
-        {
-            counter++;
+        for(int ptr=0; ptr<sizeof(words); ptr++){
+            printf("lol = ", words[ptr]);
         }
-        cout<<strWords[counter]<<endl;
     }
 
     return 0;

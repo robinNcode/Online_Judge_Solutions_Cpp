@@ -1,40 +1,44 @@
-#include<bits/stdc++.h>
+#include <iostream>
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
 using namespace std;
 int main()
 {
+	long i, l, le, f, m4, m15, m55, m100, m400;
+	char y[1000001];
+	bool b = false;
 
-    int year, leap=0,lol=0;
-    while(1)
-    {
-        cin>>year;
+	while(gets(y))
+	{
+		if(b) printf("\n");
+		b = true;
+		le = f = m4 = m15 = m55 = m100 = m400 = 0;
 
-        if (year % 4 == 0)
-        {
-            leap++;
-            if (year % 100 == 0)
-            {
-                leap++;
-                if (year % 400 == 0)
-                {
-                    leap++;
-                    //cout << year << " is a leap year.";
-                }
-                else lol++;
-                    // cout << year << " is not a leap year.";
-                }
-            else lol++;
-                // cout << year << " is a leap year.";
-            }
-        else lol++;
-            // cout << year << " is not a leap year.";
+		l = strlen(y);
 
-        if(leap==0 && year%15 ==0 ) cout<<"This is huluculu festival year.\n";
-        else if (leap>0 && year % 15==0) cout<<"This is leap year.\n"<<"This is huluculu festival year.\n";
-        else if (leap>0 && year % 55) cout<<"This is leap year.\n"<<"This is bulukulu festival year.\n";
-        else if(leap>0 && year%15 != 0 || year%55 != 0 ) cout<<"This is leap year.\n";
-        else cout<<"This is an ordinary year.\n";
+		for (i = 0; i < l; ++i)
+		{
+			m4 = ((m4 * 10) + (y[i] - '0')) % 4;
+			m15 = ((m15 * 10) + (y[i] - '0')) % 15;
+			m55 = ((m55 * 10) + (y[i] - '0')) % 55;
+			m100 = ((m100 * 10) + (y[i] - '0')) % 100;
+			m400 = ((m400 * 10) + (y[i] - '0')) % 400;
+		}
 
-        cout<<endl;
-        }
-    return 0;
+		if((m4 == 0 && m100 != 0) || (m400 == 0)){
+			printf("This is leap year.\n");
+			le = f = 1;
+		}
+
+		if(m15 == 0){
+			printf("This is huluculu festival year.\n");
+			f = 1;
+		}
+
+		if(le == 1 && m55 == 0) printf("This is bulukulu festival year.\n");
+		if(f == 0) printf("This is an ordinary year.\n");
+	}
+
+	return 0;
 }

@@ -1,59 +1,34 @@
-/*URI - 1168*/
-/*Painel de LED*/
-
-//João quer montar um painel de LED contendo diversos números;
-//Não possui muitos LEDs;
-
-//Faça um algoritmo que ajude a João a descobrir a quantidade de LEDs necessários;
-
+#include<iostream>
 #include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
+using namespace std;
+int main(int argc, char ** argv){
 
-int main(){
-  char n[1110];
-  int i, j, soma=0;
-  int N;  //número de casos teste;
+    int test, j;
+    string str;
+    long long leds;
 
-  //Para cada caso teste, imprima uma linha contendo o número de LEDs que João precisa
-  //montar para o valor desejado;
+    cin>>test;
 
-  scanf("%d", &N);
-  for(i=0; i<N; i++){
-    scanf("%s", n); // número de LEDs que João quer montar;
-
-      for(j=0; j<strlen(n); j++){
-        if(n[j] == '1'){
-          soma = soma + 2;
-        }
-          if(n[j] == '2'){
-            soma = soma + 5;
-          }
-            else if(n[j] == '3'){
-              soma = soma + 5;
+    for(int i = 0; i < test; i++){
+            cin>>str;
+            cout<<str<<endl;
+            j = 0;
+            leds = 0;
+            while(true){
+                        if(str[j] == ' ') break;
+                        else if(str[j] == '1') leds += 2;
+                        else if(str[j] == '2') leds += 5;
+                        else if(str[j] == '3') leds += 5;
+                        else if(str[j] == '4') leds += 4;
+                        else if(str[j] == '5') leds += 5;
+                        else if(str[j] == '6') leds += 6;
+                        else if(str[j] == '7') leds += 3;
+                        else if(str[j] == '8') leds += 7;
+                        else if(str[j] == '9') leds += 6;
+                        else if(str[j] == '0') leds += 6;
+                        j++;
             }
-              else if(n[j] == '4'){
-                soma += 4;
-              }
-                else if(n[j] == '5'){
-                  soma += 5;
-                }
-                  else if(n[j] == '6'){
-                    soma += 6;
-                  }
-                    else if(n[j] == '7'){
-                      soma += 3;
-                    }
-                      else if(n[j] == '8'){
-                        soma += 7;
-                      }
-                        if(n[j] == '9'){
-                          soma +=6;
-                        }
-                                       }
-
-            printf("%d leds\n",soma);
-         soma = 0;
-     }
- return 0;
+        cout<<leds<<" leds\n";
+    }
+    return 0;
 }

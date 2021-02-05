@@ -1,19 +1,31 @@
-#include <string.h>
-#include <stdbool.h>
 #include <stdio.h>
+int main(){
+    int n, j;
+    char num[101];
+    long long leds;
 
-int main(int argc, char *argv)
-{
 
-    char words[1100];
+    scanf("%d", &n);
 
-    bool body = false;
-    while (~scanf("%[^\n]%*c", words))
-    {
-        for(int ptr=0; ptr<sizeof(words); ptr++){
-            printf("lol = ", words[ptr]);
-        }
+    for(int i = 0; i < n; i++){
+            scanf("%s", &num);
+            j = 0;
+            leds = 0;
+            while(true){
+                        if(num[j] == ' ') break;
+                        else if(num[j] == '1') leds += 2;
+                        else if(num[j] == '2') leds += 5;
+                        else if(num[j] == '3') leds += 5;
+                        else if(num[j] == '4') leds += 4;
+                        else if(num[j] == '5') leds += 5;
+                        else if(num[j] == '6') leds += 6;
+                        else if(num[j] == '7') leds += 3;
+                        else if(num[j] == '8') leds += 7;
+                        else if(num[j] == '9') leds += 6;
+                        else if(num[j] == '0') leds += 6;
+                        j++;
+            }
+            printf("%lld leds\n", leds);
     }
-
     return 0;
 }

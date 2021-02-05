@@ -14,7 +14,7 @@ int main(int argc, char ** argv){
             }
     }
 
-    for(int row = 0; row <= 4; row++){
+    for(int row = 11; row >= 7; row--){
         for(int column=re; column <= po; column++){
             result += arr[row][column];
         }
@@ -33,3 +33,4 @@ int main(int argc, char ** argv){
 
 	return 0;
 }
+

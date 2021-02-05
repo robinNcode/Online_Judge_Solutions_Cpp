@@ -4,7 +4,7 @@
 using namespace std;
 int main(int argc, char ** argv){
     char ch;
-    int po=10,re=1;
+    int  re=11,box=0;
     double  arr[12][12],result = 0.0;
 
     cin>>ch;
@@ -14,12 +14,12 @@ int main(int argc, char ** argv){
             }
     }
 
-    for(int row = 0; row <= 4; row++){
-        for(int column=re; column <= po; column++){
+    for(int row=1; row<=11; row++){
+        for(int column=re; column<=11; column++){
             result += arr[row][column];
+            box++;
         }
-        po--;
-        re++;
+        re--;
     }
 
     cout<<fixed<<setprecision(1);
@@ -27,7 +27,7 @@ int main(int argc, char ** argv){
         cout<<result<<endl;
     }
     else if(ch == 'M'){
-        result = result/30.0;
+        result = result/box;
         cout<<result<<endl;
     }
 
